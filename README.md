@@ -22,7 +22,7 @@ I completed my degree through:
 
 ### Degree
 
-**BSc (Hons) Computer Science — Upper Second Class Honours (2:1)**
+**BSc (Hons) Computer Science — Upper Second Class Honours**
 
 I also have approximately **one year of industry experience as a Software Engineer Intern at Sarasa Soft Solutions**, where I gained experience working in a professional software development environment.
 
