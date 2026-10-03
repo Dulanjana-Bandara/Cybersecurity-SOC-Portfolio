@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dulanjana Bandara - Cybersecurity SOC Portfolio">
+  <title>Dulanjana Bandara | Cybersecurity SOC Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">&lt;DB /&gt;</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">SOC • SIEM • DETECTION ENGINEERING</p>
+          <h1>Dulanjana <span>Bandara</span></h1>
+          <h2>Cybersecurity / SOC Analyst Portfolio</h2>
+          <p class="hero-copy">Computer Science graduate with hands-on SOC lab experience across Splunk, Wazuh, Windows security telemetry, Microsoft Defender, Wireshark, phishing analysis, malware triage, MITRE ATT&amp;CK and Sigma detection engineering.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="YOUR_GITHUB_URL" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <div class="hero-badges"><span>13 SOC Labs</span><span>Splunk + Wazuh</span><span>Sigma + SPL</span><span>Windows Security</span></div>
+        </div>
+        <aside class="terminal-card">
+          <div class="terminal-top"><span></span><span></span><span></span></div>
+          <pre><code><span class="green">$</span> whoami
+Dulanjana Bandara
+
+<span class="green">$</span> focus
+SOC Analyst / Cybersecurity Analyst
+
+<span class="green">$</span> education
+BSc (Hons) Computer Science
+Upper Second Class Honours (2:1)
+
+<span class="green">$</span> experience
+~1 year Software Engineer Intern
+
+<span class="green">$</span> labs --completed
+13
+
+<span class="green">$</span> status
+<span class="accent">Open to entry-level security roles</span></code></pre>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <p class="section-kicker">01 / ABOUT</p>
+        <h2>From software engineering to security operations.</h2>
+        <div class="two-col">
+          <div class="panel">
+            <p>I completed a <strong>BSc (Hons) Computer Science — Upper Second Class Honours (2:1)</strong> through the <strong>Informatics Institute of Technology</strong>, in collaboration with the <strong>University of Westminster, UK</strong>.</p>
+            <p>I also have approximately one year of industry experience as a <strong>Software Engineer Intern at Sarasa Soft Solutions</strong>. My current focus is SOC operations, incident triage, SIEM investigation, endpoint monitoring and detection engineering.</p>
+          </div>
+          <div class="panel">
+            <h3>Current focus</h3>
+            <ul class="check-list">
+              <li>Security Operations Center workflows</li><li>Splunk SPL and SIEM alerting</li><li>Wazuh threat hunting</li><li>Windows endpoint telemetry</li><li>PowerShell and Sigma detection</li><li>Phishing and malware investigation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section alt">
+      <div class="container">
+        <p class="section-kicker">02 / SKILLS</p><h2>Security stack</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>SIEM</h3><p>Splunk Enterprise, Splunk Universal Forwarder, SPL, Wazuh Manager, Wazuh Dashboard and alert triage.</p></div>
+          <div class="skill-card"><h3>Endpoint</h3><p>Windows Event Logs, Microsoft Defender, Event IDs 4624, 4625, 4104, 1116 and 1117.</p></div>
+          <div class="skill-card"><h3>Network</h3><p>Wireshark, DNS, TCP handshake, TLS, ports, traffic analysis and troubleshooting.</p></div>
+          <div class="skill-card"><h3>Threat Analysis</h3><p>Phishing triage, SPF/DKIM/DMARC, IOC extraction, malware sandbox analysis and incident timelines.</p></div>
+          <div class="skill-card"><h3>Detection</h3><p>Sigma rules, Sigma CLI, Splunk conversion, PowerShell telemetry and MITRE ATT&amp;CK mapping.</p></div>
+          <div class="skill-card"><h3>Systems</h3><p>Windows 11, Ubuntu Server, VMware Workstation, PowerShell, Linux CLI and virtualization.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <p class="section-kicker">03 / PROJECTS</p><h2>Featured security projects</h2>
+        <div class="featured-grid">
+          <article class="project"><div class="project-num">08</div><h3>Splunk SIEM Investigation</h3><p>Deployed Splunk Enterprise, forwarded Windows Security logs, wrote SPL, built a failed-logon detection, triggered a scheduled alert and created an authentication dashboard.</p><div class="tags"><span>Splunk</span><span>SPL</span><span>Windows</span><span>Detection</span></div><a href="./Lab-08-Splunk-SIEM-Investigation/">View project →</a></article>
+          <article class="project"><div class="project-num">13</div><h3>Sigma Detection Engineering</h3><p>Created a Sigma rule for encoded PowerShell activity, validated it with Sigma CLI, converted it to Splunk SPL and tested it against Event ID 4104 telemetry.</p><div class="tags"><span>Sigma</span><span>PowerShell</span><span>Splunk</span><span>MITRE</span></div><a href="./Lab-13-Sigma-Detection-Engineering/">View project →</a></article>
+          <article class="project"><div class="project-num">07</div><h3>Full SOC Incident Investigation</h3><p>Correlated authentication, PowerShell and Microsoft Defender telemetry in Wazuh, built an incident timeline and separated observed evidence from assumptions.</p><div class="tags"><span>Wazuh</span><span>Defender</span><span>IR</span><span>Windows</span></div><a href="./Lab-07-Full-SOC-Incident-Investigation/">View project →</a></article>
+          <article class="project"><div class="project-num">12</div><h3>Malware Sandbox Analysis</h3><p>Analyzed Agent Tesla behavior including credential theft, browser/Outlook access, Run-key persistence, discovery and suspicious FTP communication.</p><div class="tags"><span>Malware</span><span>IOCs</span><span>Persistence</span><span>ATT&amp;CK</span></div><a href="./Lab-12-Malware-Sandbox-Analysis/">View project →</a></article>
+        </div>
+
+        <div class="all-projects-heading"><h3>All 13 labs</h3><button id="toggleLabs" class="btn small">Show all</button></div>
+        <div id="allLabs" class="labs-grid collapsed">
+          <a class="lab-card" href="./Lab-01-Windows-Event-Log-Investigation/"><b>01</b><span>Windows Event Log Investigation</span></a>
+          <a class="lab-card" href="./Lab-02-Wireshark-Traffic-Analysis/"><b>02</b><span>Wireshark Traffic Analysis</span></a>
+          <a class="lab-card" href="./Lab-03-Phishing-Email-Investigation/"><b>03</b><span>Phishing Email Investigation</span></a>
+          <a class="lab-card" href="./Lab-04-Wazuh-SIEM-Log-Analysis/"><b>04</b><span>Wazuh SIEM Log Analysis</span></a>
+          <a class="lab-card" href="./Lab-05-Malware-Triage/"><b>05</b><span>Malware Triage</span></a>
+          <a class="lab-card" href="./Lab-06-MITRE-ATTACK-Investigation/"><b>06</b><span>MITRE ATT&amp;CK Investigation</span></a>
+          <a class="lab-card" href="./Lab-07-Full-SOC-Incident-Investigation/"><b>07</b><span>Full SOC Incident Investigation</span></a>
+          <a class="lab-card" href="./Lab-08-Splunk-SIEM-Investigation/"><b>08</b><span>Splunk SIEM Investigation</span></a>
+          <a class="lab-card" href="./Lab-09-Three-Alert-SOC-Triage/"><b>09</b><span>Three-Alert SOC Triage</span></a>
+          <a class="lab-card" href="./Lab-10-Advanced-Phishing-Investigation/"><b>10</b><span>Advanced Phishing Investigation</span></a>
+          <a class="lab-card" href="./Lab-11-Encoded-PowerShell-Investigation/"><b>11</b><span>Encoded PowerShell Investigation</span></a>
+          <a class="lab-card" href="./Lab-12-Malware-Sandbox-Analysis/"><b>12</b><span>Malware Sandbox Analysis</span></a>
+          <a class="lab-card" href="./Lab-13-Sigma-Detection-Engineering/"><b>13</b><span>Sigma Detection Engineering</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section alt">
+      <div class="container">
+        <p class="section-kicker">04 / BACKGROUND</p>
+        <div class="two-col">
+          <div><h2>Education</h2><div class="timeline-item"><span class="timeline-year">BSc (Hons)</span><h3>Computer Science — Upper Second Class Honours (2:1)</h3><p><strong>Informatics Institute of Technology</strong><br>In collaboration with the <strong>University of Westminster, UK</strong></p></div></div>
+          <div><h2>Industry experience</h2><div class="timeline-item"><span class="timeline-year">~1 year</span><h3>Software Engineer Intern</h3><p><strong>Sarasa Soft Solutions</strong></p><p>Software development, debugging, troubleshooting, technical problem solving and team-based development workflows.</p></div></div>
+        </div>
+        <div class="fyp panel">
+          <p class="section-kicker">FINAL YEAR PROJECT</p>
+          <h3>Neonatal Jaundice Detection Using a Computer Vision System</h3>
+          <p>Developed a computer vision system using Python, TensorFlow/Keras and EfficientNetB4. The work included transfer learning, image preprocessing, illumination correction, ROI extraction, color normalization, stratified K-fold cross-validation, threshold optimization and a web-based prototype.</p>
+          <div class="tags"><span>Python</span><span>TensorFlow</span><span>EfficientNetB4</span><span>Computer Vision</span><span>Research</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-box">
+        <p class="section-kicker">05 / CONTACT</p>
+        <h2>Open to entry-level cybersecurity opportunities.</h2>
+        <p>SOC Analyst • Cybersecurity Analyst • Security Operations • Associate Cybersecurity Analyst</p>
+        <div class="hero-actions center">
+          <a class="btn primary" href="mailto:YOUR_EMAIL">Email me</a>
+          <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="YOUR_GITHUB_URL" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="YOUR_CV_FILE.pdf" target="_blank" rel="noreferrer">View CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Dulanjana Bandara</span><span>Built as a cybersecurity portfolio.</span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
