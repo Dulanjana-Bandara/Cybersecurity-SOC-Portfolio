@@ -1,60 +1,40 @@
 # Cybersecurity SOC Portfolio
 
-Hi, I'm **Dulanjana Bandara**, a Computer Science graduate building practical experience for entry-level **SOC Analyst**, **Cybersecurity Analyst**, and **Security Operations** roles.
+Hi, I'm **Dulanjana Bandara**, a Computer Science graduate with practical hands-on experience in SOC analysis, SIEM monitoring, Windows event investigation, network traffic analysis, phishing investigation, malware triage, incident response, and detection engineering.
 
-This repository documents my hands-on cybersecurity labs covering SIEM monitoring, Windows event analysis, network traffic analysis, phishing investigation, malware triage, MITRE ATT&CK mapping, incident investigation, detection engineering, and Splunk-based security monitoring.
+This repository documents my cybersecurity lab work and portfolio projects developed while preparing for entry-level roles such as:
+
+- SOC Analyst
+- Junior SOC Analyst
+- Cybersecurity Analyst
+- Security Operations Analyst
+- Associate Cybersecurity Analyst
 
 ---
 
 ## About Me
 
-I completed my Computer Science degree through:
+I completed my degree through:
 
 **INFORMATICS INSTITUTE OF TECHNOLOGY**  
 **In Collaboration with**  
-**UNIVERSITY OF WESTMINSTER**
+**UNIVERSITY OF WESTMINSTER, UK**
+
+### Degree
+
+**BSc (Hons) Computer Science — Upper Second Class Honours (2:1)**
 
 I also have approximately **one year of industry experience as a Software Engineer Intern at Sarasa Soft Solutions**, where I gained experience working in a professional software development environment.
 
-My current focus is transitioning into cybersecurity, particularly roles involving:
+My current focus is cybersecurity, particularly:
 
-- SOC operations
-- Security monitoring
-- SIEM investigation
-- Incident triage
-- Threat detection
-- Endpoint monitoring
-- Network traffic analysis
-
----
-
-## Education
-
-**BSc (Hons) Computer Science**
-
-**Informatics Institute of Technology**  
-In Collaboration with  
-**University of Westminster**
-
----
-
-## Professional Experience
-
-### Software Engineer Intern  
-**Sarasa Soft Solutions**
-
-Approximately one year of industry experience in a software engineering environment.
-
-### Experience gained
-
-- Software development
-- Debugging and troubleshooting
-- Working with production-style systems
-- Technical problem solving
-- Team-based development workflows
-- Understanding application behavior from a developer perspective
-
-This software development background supports my cybersecurity learning by giving me a stronger understanding of applications, systems, code, and technical troubleshooting.
+- Security Operations
+- SOC Monitoring
+- SIEM Investigation
+- Incident Triage
+- Detection Engineering
+- Endpoint Security
+- Network Traffic Analysis
 
 ---
 
@@ -72,16 +52,7 @@ This software development background supports my cybersecurity learning by givin
 - Detection logic
 - Security dashboards
 
-## Network Security
-
-- Wireshark
-- DNS analysis
-- TCP three-way handshake
-- TLS traffic analysis
-- Network ports and protocols
-- Basic traffic investigation
-
-## Endpoint and Windows Security
+## Windows and Endpoint Security
 
 - Windows Event Viewer
 - Event ID 4624
@@ -90,17 +61,40 @@ This software development background supports my cybersecurity learning by givin
 - Defender Event ID 1116
 - Defender Event ID 1117
 - PowerShell Script Block Logging
-- Endpoint detection analysis
+- Microsoft Defender
+- Endpoint telemetry analysis
+
+## Network Security
+
+- Wireshark
+- DNS analysis
+- TCP three-way handshake
+- TLS analysis
+- Network ports and protocols
+- Packet inspection
+- Network troubleshooting
 
 ## Threat Investigation
 
-- Phishing email analysis
-- IOC identification
+- Phishing analysis
+- Email header analysis
+- SPF / DKIM / DMARC
+- IOC extraction
 - Malware triage
+- Malware sandbox analysis
 - Incident timelines
 - MITRE ATT&CK mapping
-- SOC-style investigation
-- Evidence-based analyst decision-making
+- SOC alert triage
+- Blast-radius analysis
+
+## Detection Engineering
+
+- Sigma rule creation
+- Sigma CLI
+- Splunk detection conversion
+- SPL detection logic
+- PowerShell detection
+- Alert testing and validation
 
 ## Platforms and Tools
 
@@ -108,11 +102,12 @@ This software development background supports my cybersecurity learning by givin
 - Ubuntu Server
 - VMware Workstation
 - PowerShell
-- Linux command line
+- Linux CLI
 - Splunk
 - Wazuh
 - Microsoft Defender
 - Wireshark
+- Sigma
 
 ---
 
@@ -120,18 +115,17 @@ This software development background supports my cybersecurity learning by givin
 
 ## Splunk SIEM Investigation
 
-Built a Splunk Enterprise lab environment and connected a Windows 11 endpoint using the Splunk Universal Forwarder.
+Built a Splunk Enterprise lab and connected a Windows 11 endpoint using the Splunk Universal Forwarder.
 
-### Work completed
+### Work Completed
 
 - Installed Splunk Enterprise on Ubuntu Server
 - Configured TCP receiving on port 9997
 - Installed and configured Splunk Universal Forwarder
-- Forwarded Windows Security Event Logs
+- Forwarded Windows Security logs
 - Investigated Event IDs 4624 and 4625
-- Used SPL for authentication analysis
-- Created field extraction using regular expressions
-- Built a failed-logon detection search
+- Created SPL queries
+- Built failed-logon detection logic
 - Created a scheduled Splunk alert
 - Successfully triggered the alert
 - Built a Windows Authentication Monitoring dashboard
@@ -144,15 +138,15 @@ Built a Splunk Enterprise lab environment and connected a Windows 11 endpoint us
 
 Performed a controlled SOC investigation using Windows telemetry, Wazuh, PowerShell logging, and Microsoft Defender.
 
-### Evidence investigated
+### Evidence Investigated
 
 - Event ID 4625 - Failed authentication
 - Event ID 4624 - Successful authentication
 - Event ID 4104 - PowerShell Script Block Logging
-- Event ID 1116 - Microsoft Defender detection
+- Event ID 1116 - Defender detection
 - Event ID 1117 - Defender remediation
 
-### Key work
+### Key Work
 
 - Correlated multiple security events
 - Built an incident timeline
@@ -160,9 +154,77 @@ Performed a controlled SOC investigation using Windows telemetry, Wazuh, PowerSh
 - Reviewed PowerShell telemetry
 - Verified endpoint detection
 - Confirmed Defender quarantine
-- Differentiated controlled lab activity from evidence of real compromise
+- Distinguished controlled testing from evidence of real compromise
 
 [View Project](./Lab-07-Full-SOC-Incident-Investigation/)
+
+---
+
+## Sigma Detection Engineering
+
+Created and tested a Sigma detection rule for suspicious PowerShell encoded-command activity.
+
+### Work Completed
+
+- Created a Sigma YAML rule
+- Installed Sigma CLI
+- Installed the Splunk backend
+- Used the `splunk_windows` pipeline
+- Converted the Sigma rule into Splunk SPL
+- Forwarded PowerShell Operational logs into Splunk
+- Verified Event ID 4104 telemetry
+- Tested and validated detection logic
+
+### MITRE ATT&CK
+
+**T1059.001 - Command and Scripting Interpreter: PowerShell**
+
+[View Project](./Lab-13-Sigma-Detection-Engineering/)
+
+---
+
+## Malware Sandbox Analysis
+
+Analyzed a public Agent Tesla sandbox report without executing malware locally.
+
+### Key Findings
+
+- Browser credential theft
+- Browser cookie access
+- Outlook profile access
+- External IP discovery
+- Host discovery
+- Registry Run-key persistence
+- Suspicious FTP communication
+
+### Detection and Analysis
+
+- IOC extraction
+- Registry persistence analysis
+- Network activity analysis
+- MITRE ATT&CK mapping
+- SOC triage and response planning
+
+[View Project](./Lab-12-Malware-Sandbox-Analysis/)
+
+---
+
+## Advanced Phishing Investigation
+
+Performed a SOC-style phishing investigation using a simulated Microsoft 365 phishing email.
+
+### Analysis Included
+
+- Sender / Reply-To mismatch
+- Lookalike domain detection
+- SPF / DKIM / DMARC analysis
+- Suspicious URL analysis
+- IOC extraction
+- Blast-radius assessment
+- Severity classification
+- SOC response recommendations
+
+[View Project](./Lab-10-Advanced-Phishing-Investigation/)
 
 ---
 
@@ -170,7 +232,7 @@ Performed a controlled SOC investigation using Windows telemetry, Wazuh, PowerSh
 
 Deployed a Wazuh all-in-one SIEM environment on Ubuntu Server and connected a Windows 11 endpoint.
 
-### Work completed
+### Work Completed
 
 - Installed Wazuh Manager
 - Installed Wazuh Indexer
@@ -187,69 +249,7 @@ Deployed a Wazuh all-in-one SIEM environment on Ubuntu Server and connected a Wi
 
 ---
 
-## Malware Triage with Microsoft Defender and Wazuh
-
-Performed safe endpoint detection testing using the EICAR antivirus test artifact.
-
-### Work completed
-
-- Generated controlled EICAR test activity
-- Observed Microsoft Defender detection
-- Investigated Defender Event ID 1116
-- Verified quarantine using Event ID 1117
-- Correlated Defender telemetry with Wazuh
-- Reviewed Wazuh severity and alert details
-- Recorded the SHA-256 hash
-- Documented SOC-style triage findings
-
-No real malware was executed during this lab.
-
-[View Project](./Lab-05-Malware-Triage/)
-
----
-
-## Wireshark Traffic Analysis
-
-Captured and analyzed network traffic using Wireshark.
-
-### Protocols investigated
-
-- DNS
-- TCP
-- TLS
-
-### Work completed
-
-- Identified DNS queries and responses
-- Analyzed TCP SYN, SYN-ACK, and ACK packets
-- Reviewed TLS ClientHello and ServerHello traffic
-- Identified SNI values where visible
-- Examined source and destination ports
-- Practiced basic SOC network analysis
-
-[View Project](./Lab-02-Wireshark-Traffic-Analysis/)
-
----
-
-## Phishing Email Investigation
-
-Analyzed a simulated phishing email and documented indicators associated with phishing activity.
-
-### Investigation included
-
-- Sender analysis
-- Reply-To mismatch
-- Suspicious links
-- Urgency indicators
-- Email authentication indicators
-- IOC extraction
-- MITRE ATT&CK mapping
-
-[View Project](./Lab-03-Phishing-Email-Investigation/)
-
----
-
-# Completed Labs
+# Completed Cybersecurity Labs
 
 | Lab | Project | Main Skills |
 |---|---|---|
@@ -261,6 +261,11 @@ Analyzed a simulated phishing email and documented indicators associated with ph
 | 06 | MITRE ATT&CK Investigation | ATT&CK mapping, analyst interpretation |
 | 07 | Full SOC Incident Investigation | Incident timeline, endpoint telemetry, triage |
 | 08 | Splunk SIEM Investigation | SPL, Universal Forwarder, alerts, dashboards |
+| 09 | Three-Alert SOC Triage | Severity, verdict, escalation decisions |
+| 10 | Advanced Phishing Investigation | SPF, DKIM, DMARC, IOCs, blast radius |
+| 11 | Encoded PowerShell Investigation | Base64 decoding, Event ID 4104 |
+| 12 | Malware Sandbox Analysis | Malware behavior, persistence, network IOCs |
+| 13 | Sigma Detection Engineering | Sigma, SPL conversion, detection testing |
 
 ---
 
@@ -290,13 +295,49 @@ Analyzed a simulated phishing email and documented indicators associated with ph
 ## Lab 08
 [Splunk SIEM Investigation](./Lab-08-Splunk-SIEM-Investigation/)
 
+## Lab 09
+[Three-Alert SOC Triage](./Lab-09-Three-Alert-SOC-Triage/)
+
+## Lab 10
+[Advanced Phishing Investigation](./Lab-10-Advanced-Phishing-Investigation/)
+
+## Lab 11
+[Encoded PowerShell Investigation](./Lab-11-Encoded-PowerShell-Investigation/)
+
+## Lab 12
+[Malware Sandbox Analysis](./Lab-12-Malware-Sandbox-Analysis/)
+
+## Lab 13
+[Sigma Detection Engineering](./Lab-13-Sigma-Detection-Engineering/)
+
+---
+
+# Professional Experience
+
+## Software Engineer Intern
+**Sarasa Soft Solutions**
+
+Approximately one year of industry experience in a software engineering environment.
+
+### Experience Gained
+
+- Software development
+- Debugging and troubleshooting
+- Technical problem solving
+- Working with production-style systems
+- Team-based development workflows
+- Application behavior analysis
+- Professional software engineering practices
+
+This background supports my cybersecurity work by giving me practical experience understanding applications, systems, and technical troubleshooting.
+
 ---
 
 # Final Year Project
 
 ## Neonatal Jaundice Detection Using a Computer Vision System
 
-For my final year project, I developed a computer vision system designed to support neonatal jaundice detection using medical image analysis.
+Developed a computer vision system designed to support neonatal jaundice detection using medical image analysis.
 
 ### Technologies and Methods
 
@@ -312,18 +353,6 @@ For my final year project, I developed a computer vision system designed to supp
 - Threshold optimization
 - Web-based deployment
 
-### Project Work
-
-The project involved:
-
-- Preparing and preprocessing neonatal image data
-- Applying transfer learning
-- Training and evaluating a deep learning model
-- Comparing validation and test performance
-- Optimizing classification thresholds
-- Developing a web-based prototype
-- Evaluating model performance for practical use
-
 ### Skills Developed
 
 - Machine learning
@@ -337,38 +366,9 @@ The project involved:
 
 ---
 
-# Upcoming Portfolio Projects
-
-This portfolio will continue to be updated with:
-
-- Three-Alert SOC Triage
-- Advanced Phishing Investigation
-- Encoded PowerShell Investigation
-- Malware Sandbox Analysis
-- Sigma Detection Engineering
-- Microsoft Sentinel Investigation
-
----
-
-# Lab Environment
-
-Most labs were performed using:
-
-- VMware Workstation
-- Windows 11 virtual machines
-- Ubuntu Server
-- Splunk Enterprise
-- Splunk Universal Forwarder
-- Wazuh
-- Microsoft Defender
-- Wireshark
-- PowerShell
-
----
-
 # Portfolio Evidence
 
-Where available, individual lab folders contain:
+Individual lab folders contain available evidence such as:
 
 - Lab documentation
 - PDF investigation reports
@@ -376,21 +376,22 @@ Where available, individual lab folders contain:
 - SPL queries
 - Wireshark packet captures
 - Detection logic
-- Investigation findings
+- IOC tables
+- Analyst findings
 
-Evidence differs between labs depending on what was retained during the exercise.
+Evidence varies between projects depending on the material retained during each exercise.
 
 ---
 
 # Ethical and Safety Statement
 
-All security testing documented in this repository was performed in authorized and controlled lab environments.
+All cybersecurity testing documented in this repository was performed in authorized and controlled lab environments.
 
 No unauthorized systems were targeted.
 
-Safe simulations and test artifacts were used where appropriate.
+Safe simulations, public sandbox reports, and test artifacts were used where appropriate.
 
-No real malware was executed.
+No real malware was executed on local systems.
 
 Sensitive information such as passwords, authentication keys, personal email addresses, and private credentials has been removed or redacted.
 
@@ -398,7 +399,7 @@ Sensitive information such as passwords, authentication keys, personal email add
 
 # Career Focus
 
-I am currently developing practical skills for entry-level roles such as:
+I am currently preparing for entry-level cybersecurity roles including:
 
 - SOC Analyst
 - Junior SOC Analyst
@@ -406,4 +407,4 @@ I am currently developing practical skills for entry-level roles such as:
 - Security Operations Analyst
 - Associate Cybersecurity Analyst
 
-My current learning focus includes SIEM investigation, detection engineering, endpoint telemetry, network analysis, incident response, Splunk, Wazuh, and Microsoft Sentinel.
+My current focus includes SIEM investigation, incident triage, detection engineering, endpoint telemetry, network analysis, Splunk, Wazuh, Microsoft Defender, Sigma, and Microsoft Sentinel.
