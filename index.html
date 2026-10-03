@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dulanjana Bandara - Cybersecurity SOC Analyst Portfolio">
+  <meta name="theme-color" content="#071019">
+  <meta name="portfolio-version" content="5-self-contained">
+  <title>Dulanjana Bandara | Cybersecurity SOC Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --bg:#061018;
+  --panel:#0b1823;
+  --panel2:#0d1d2a;
+  --text:#edf8fb;
+  --muted:#8da6b4;
+  --line:rgba(130,185,207,.16);
+  --accent:#5af0b8;
+  --accent2:#49b8ff;
+  --accent3:#8e7dff;
+  --shadow:0 28px 90px rgba(0,0,0,.42);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 8% -5%,rgba(73,184,255,.09),transparent 28%),
+  radial-gradient(circle at 95% 20%,rgba(90,240,184,.08),transparent 24%),
+  var(--bg);
+  color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.65;overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+strong{color:#e3f4fb}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.section-anchor{scroll-margin-top:90px}
+
+.noise{pointer-events:none;position:fixed;inset:0;z-index:100;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:-3;opacity:.24;background-image:linear-gradient(rgba(83,220,178,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(83,220,178,.045) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black 0%,transparent 85%)}
+.scan-line{position:fixed;left:0;right:0;height:1px;z-index:-1;background:linear-gradient(90deg,transparent,rgba(90,240,184,.28),transparent);animation:scan 8s linear infinite;opacity:.45}
+@keyframes scan{0%{top:-5%}100%{top:105%}}
+.orb{position:fixed;width:480px;height:480px;border-radius:50%;filter:blur(120px);opacity:.11;z-index:-2;pointer-events:none}
+.orb-a{background:var(--accent2);left:-180px;top:3%}.orb-b{background:var(--accent);right:-200px;top:30%}
+
+.site-header{position:sticky;top:0;z-index:50;background:rgba(6,16,24,.7);backdrop-filter:blur(20px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.055)}
+.nav-wrap{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-shield{
+  width:42px;height:46px;display:grid;place-items:center;position:relative;
+  clip-path:polygon(50% 0,92% 16%,84% 76%,50% 100%,16% 76%,8% 16%);
+  background:linear-gradient(145deg,rgba(90,240,184,.95),rgba(73,184,255,.78));
+  box-shadow:0 0 28px rgba(90,240,184,.16)
+}
+.logo-shield:before{
+  content:"";position:absolute;inset:2px;
+  clip-path:inherit;background:linear-gradient(180deg,#0b1a24,#07121a)
+}
+.logo-core{
+  position:relative;z-index:1;
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;font-weight:800;
+  letter-spacing:.04em;color:#dffaf0
+}
+.brand-copy{display:flex;flex-direction:column;line-height:1.08}
+.brand-copy strong{font-size:.84rem;letter-spacing:.01em;color:#e7f5fa}
+.brand-copy small{
+  margin-top:5px;font-family:"JetBrains Mono",monospace;
+  font-size:.52rem;letter-spacing:.14em;color:#6f8d9c
+}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:.87rem;color:#9eb4bf;transition:.2s}.nav-links a:hover,.nav-links a.active{color:#eef9fc}
+.nav-cta{padding:9px 14px;border:1px solid rgba(90,240,184,.23);border-radius:10px;color:var(--accent)!important;background:rgba(90,240,184,.045)}
+.nav-toggle{display:none;background:none;border:0;width:42px;height:42px;padding:10px}.nav-toggle span{display:block;height:2px;background:#e2f0f5;margin:5px 0;border-radius:99px}
+
+.hero{min-height:calc(100vh - 76px);display:flex;align-items:center;padding:105px 0 84px}
+.hero-grid{display:grid;grid-template-columns:1.14fr .86fr;gap:62px;align-items:center}
+.status-pill{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(90,240,184,.18);background:rgba(90,240,184,.055);color:#b9d9cc;border-radius:999px;padding:7px 11px;font-size:.76rem}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(90,240,184,.08),0 0 20px rgba(90,240,184,.55);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(90,240,184,.03),0 0 24px rgba(90,240,184,.75)}}
+.eyebrow,.section-kicker{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.75rem;letter-spacing:.16em;font-weight:600}
+.eyebrow{margin:25px 0 12px}
+h1{margin:0;font-size:clamp(3.9rem,7vw,7.1rem);line-height:.88;letter-spacing:-.065em;font-weight:800}
+.gradient-text{display:block;background:linear-gradient(90deg,var(--accent),#c3fee7 45%,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h2{font-size:clamp(1.35rem,2.4vw,2rem);margin:25px 0 14px;color:#d6e8ef;letter-spacing:-.025em}
+.hero-text{max-width:760px;color:var(--muted);font-size:1.02rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 17px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#cce0e9;font-size:.87rem;font-weight:700;transition:.22s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);border-color:rgba(90,240,184,.28);background:rgba(255,255,255,.05)}
+.btn.primary{background:linear-gradient(135deg,#69f3c0,#42d9a3);color:#031a12;border-color:transparent;box-shadow:0 12px 32px rgba(90,240,184,.12)}
+.btn.primary:hover{box-shadow:0 16px 40px rgba(90,240,184,.22)}
+.btn.small{min-height:40px;padding:0 13px}
+.hero-facts{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap}
+.hero-facts>div{min-width:130px;padding:12px 14px;border-left:1px solid rgba(90,240,184,.2);background:linear-gradient(90deg,rgba(90,240,184,.035),transparent)}
+.hero-facts b{display:block;font-size:1.35rem;color:#dff6ee}.hero-facts span{font-size:.7rem;color:#718c9a}
+
+.hud-card{position:relative;border:1px solid rgba(105,186,215,.2);border-radius:22px;background:linear-gradient(180deg,rgba(12,26,37,.92),rgba(7,17,25,.96));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.03);overflow:hidden;transform-style:preserve-3d;transition:transform .15s ease}
+.hud-border{position:absolute;inset:-1px;border-radius:22px;padding:1px;background:linear-gradient(135deg,rgba(90,240,184,.45),transparent 35%,rgba(73,184,255,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.hud-head{height:52px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#75909e}
+.hud-title{display:flex;align-items:center;gap:8px}.hud-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(90,240,184,.7)}.hud-status{color:var(--accent);font-size:.63rem;letter-spacing:.12em}
+.hud-body{padding:25px}
+.hud-profile{display:flex;align-items:center;gap:15px}
+.avatar-ring{width:62px;height:62px;border-radius:50%;padding:2px;background:conic-gradient(var(--accent),var(--accent2),var(--accent3),var(--accent));animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-inner{width:100%;height:100%;border-radius:50%;background:#08141d;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;color:var(--accent);font-weight:700;font-size:.8rem;animation:spinBack 8s linear infinite}
+@keyframes spinBack{to{transform:rotate(-360deg)}}
+.hud-name{font-weight:700}.hud-role{color:#7e98a6;font-size:.76rem;margin-top:2px}
+.hud-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:22px 0}
+.hud-row{display:flex;justify-content:space-between;gap:18px;margin:10px 0;font-family:"JetBrains Mono",monospace;font-size:.69rem}.hud-row span{color:#718b99}.hud-row b{color:#d8eaf0;text-align:right}
+.meter-label{display:flex;justify-content:space-between;font-size:.7rem;color:#7893a2}.meter-label b{color:var(--accent)}
+.meter-track{height:6px;border-radius:999px;background:#0c2430;margin-top:8px;overflow:hidden}.meter-track span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 14px rgba(90,240,184,.35)}
+.hud-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}.hud-tags span{border:1px solid var(--line);background:#0a1822;color:#9bb1bc;padding:4px 7px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:.62rem}
+.hud-corners i{position:absolute;width:18px;height:18px}.hud-corners i:nth-child(1){left:9px;top:9px;border-left:1px solid var(--accent);border-top:1px solid var(--accent)}.hud-corners i:nth-child(2){right:9px;top:9px;border-right:1px solid var(--accent2);border-top:1px solid var(--accent2)}.hud-corners i:nth-child(3){left:9px;bottom:9px;border-left:1px solid var(--accent2);border-bottom:1px solid var(--accent2)}.hud-corners i:nth-child(4){right:9px;bottom:9px;border-right:1px solid var(--accent);border-bottom:1px solid var(--accent)}
+
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)}
+.ticker-track{width:max-content;display:flex;align-items:center;gap:28px;padding:14px 0;animation:ticker 30s linear infinite;font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.13em;color:#6f8998}.ticker-track i{color:var(--accent);font-style:normal;font-size:.48rem}@keyframes ticker{to{transform:translateX(-50%)}}
+
+.section{padding:104px 0}.alt-section{background:linear-gradient(180deg,rgba(255,255,255,.011),rgba(255,255,255,.004))}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:42px}.section-head h2,.contact-card h2{font-size:clamp(2.4rem,4.4vw,4.1rem);line-height:1.03;letter-spacing:-.046em;margin:8px 0 0}.section-head h2 span,.contact-card h2 span{color:#8099a7}.section-summary{max-width:470px;margin:0;color:var(--muted);font-size:.93rem}
+
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.glass-card,.skill-card,.project-card,.lab-directory,.fyp-card,.contact-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(13,29,42,.78),rgba(8,20,29,.72));border-radius:var(--radius);box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+.glass-card{padding:27px;position:relative;overflow:hidden}.glass-card:before{content:"";position:absolute;width:170px;height:170px;right:-95px;bottom:-105px;background:radial-gradient(circle,rgba(90,240,184,.12),transparent 67%)}
+.card-topline{display:flex;align-items:center;gap:10px}.card-topline span{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.66rem}.card-topline i{height:1px;flex:1;background:linear-gradient(90deg,rgba(90,240,184,.28),transparent)}
+.glass-card h3{font-size:1.12rem;margin:19px 0 8px}.glass-card p{margin:0;color:var(--muted);font-size:.89rem}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card{padding:24px;transition:.25s}.skill-card:hover{transform:translateY(-6px);border-color:rgba(90,240,184,.25);background:linear-gradient(180deg,rgba(15,34,47,.92),rgba(8,20,29,.8))}
+.skill-icon{width:42px;height:42px;border:1px solid rgba(90,240,184,.22);border-radius:11px;display:grid;place-items:center;color:var(--accent);font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.7rem;background:rgba(90,240,184,.04)}
+.skill-card h3{margin:17px 0 8px;font-size:1.05rem}.skill-card p{color:var(--muted);font-size:.85rem;margin:0}
+.skill-bar{height:4px;border-radius:999px;background:#0b2230;margin-top:18px;overflow:hidden}.skill-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit}
+.mini-tags,.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.mini-tags span,.project-tags span{padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:#08161f;color:#8fa8b5;font-family:"JetBrains Mono",monospace;font-size:.66rem}
+
+.featured-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.project-card{padding:28px;position:relative;overflow:hidden;transition:.25s}.project-card:hover{transform:translateY(-5px);border-color:rgba(73,184,255,.28)}
+.project-card.wide{grid-column:span 2;background:linear-gradient(135deg,rgba(12,36,44,.94),rgba(8,21,31,.8))}
+.project-accent{position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),transparent 80%);opacity:.85}
+.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.project-top span,.project-top b{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.11em}.project-top span{color:var(--accent)}.project-top b{color:#7290a0;border:1px solid var(--line);border-radius:999px;padding:4px 7px}
+.project-card h3{font-size:1.3rem;margin:0 0 9px}.project-card p{color:var(--muted);font-size:.89rem;margin:0}.project-link{display:inline-flex;gap:8px;margin-top:22px;color:var(--accent);font-weight:700;font-size:.82rem}.project-link span{transition:.2s}.project-link:hover span{transform:translate(3px,-2px)}
+
+.lab-directory{margin-top:20px;padding:28px}.directory-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.directory-head h3{font-size:1.35rem;margin:5px 0 0}.labs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.labs-grid.collapsed .lab-card:nth-child(n+7){display:none}
+.lab-card{min-height:66px;border:1px solid var(--line);border-radius:11px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:rgba(5,15,22,.42);transition:.2s}.lab-card:hover{transform:translateY(-2px);border-color:rgba(90,240,184,.24);background:rgba(10,26,36,.72)}.lab-card b{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.72rem}.lab-card span{font-size:.78rem;color:#aec2cc}.lab-card i{font-style:normal;color:#4c6877}
+
+.timeline{position:relative}.timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--accent),rgba(90,240,184,.05))}
+.timeline-item{display:grid;grid-template-columns:22px 115px 1fr;gap:20px;padding:12px 0 34px}.timeline-marker{width:21px;height:21px;border-radius:50%;border:1px solid rgba(90,240,184,.35);background:#07141c;position:relative}.timeline-marker:after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(90,240,184,.45)}.timeline-date{font-family:"JetBrains Mono",monospace;color:#7894a2;font-size:.67rem;padding-top:2px}.timeline-content h3{margin:0 0 6px;font-size:1.2rem}.timeline-content p{color:var(--muted);margin:5px 0}.timeline-content .highlight{color:#d5e8ef;font-weight:600}
+.fyp-card{display:grid;grid-template-columns:180px 1fr;gap:28px;padding:30px;margin-top:16px}.fyp-label{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.69rem;letter-spacing:.12em}.fyp-card h3{font-size:1.35rem;margin:0 0 10px}.fyp-card p{margin:0;color:var(--muted)}
+
+.contact-section{padding-top:88px}.contact-card{padding:72px 30px;text-align:center;position:relative;overflow:hidden}.contact-card>*{position:relative;z-index:1}.contact-grid{position:absolute!important;z-index:0!important;inset:0;opacity:.23;background-image:linear-gradient(rgba(90,240,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(90,240,184,.06) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(circle at center,black,transparent 72%)}.contact-card>p:not(.section-kicker){color:var(--muted);max-width:720px;margin:18px auto 0}.center{justify-content:center}
+
+.back-to-top{position:fixed;right:24px;bottom:24px;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:rgba(8,23,32,.88);color:#bdd0d9;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transform:translateY(12px);transition:.2s;z-index:30;cursor:pointer}.back-to-top.show{opacity:1;pointer-events:auto;transform:none}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#678291;font-size:.75rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .72s ease,transform .72s ease}.reveal.visible{opacity:1;transform:none}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}
+
+@media(max-width:950px){
+  .hero{min-height:auto}.hero-grid{grid-template-columns:1fr;gap:42px}.about-grid,.skills-grid{grid-template-columns:repeat(2,1fr)}.labs-grid{grid-template-columns:repeat(2,1fr)}.section-head{align-items:flex-start;flex-direction:column;gap:18px}.project-card.wide{grid-column:span 2}
+}
+@media(max-width:700px){
+  .container{width:min(100% - 28px,1180px)}
+  .nav-toggle{display:block}
+  .nav-links{position:fixed;left:14px;right:14px;top:84px;display:flex;flex-direction:column;align-items:stretch;gap:0;background:rgba(7,19,28,.98);border:1px solid var(--line);border-radius:15px;padding:10px;box-shadow:var(--shadow);transform:translateY(-10px);opacity:0;pointer-events:none;transition:.2s}
+  .nav-links.open{opacity:1;pointer-events:auto;transform:none}.nav-links a{padding:12px;border-radius:9px}.nav-cta{margin-top:4px}
+  .hero{padding:70px 0 62px}.hero-facts{flex-direction:column}.hero-facts>div{width:100%}
+  .section{padding:78px 0}.about-grid,.skills-grid,.featured-grid,.labs-grid{grid-template-columns:1fr}.project-card.wide{grid-column:auto}.directory-head{align-items:flex-start;flex-direction:column}
+  .timeline-item{grid-template-columns:22px 1fr;gap:16px}.timeline-date{grid-column:2}.timeline-content{grid-column:2}.fyp-card{grid-template-columns:1fr}.contact-card{padding:52px 20px}.footer-inner{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important;transition:none!important}.scan-line,.ticker-track,.avatar-ring,.avatar-inner,.status-dot{animation:none!important}
+}
+
+@media(max-width:480px){
+  .brand-copy small{display:none}
+  .brand-copy strong{font-size:.8rem}
+  .logo-shield{width:38px;height:42px}
+}
+
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+  <div class="scan-line"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="Home">
+        <span class="logo-shield" aria-hidden="true">
+          <span class="logo-core">DB</span>
+        </span>
+        <span class="brand-copy">
+          <strong>Dulanjana Bandara</strong>
+          <small>CYBERSECURITY PORTFOLIO</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="#background">Background</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section-anchor">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Available for entry-level cybersecurity roles
+          </div>
+
+          <p class="eyebrow">SOC ANALYSIS • SIEM • INCIDENT RESPONSE • DETECTION</p>
+
+          <h1>
+            Dulanjana
+            <span class="gradient-text">Bandara</span>
+          </h1>
+
+          <h2>Cybersecurity / SOC Analyst</h2>
+
+          <p class="hero-text">
+            Computer Science graduate with hands-on security lab experience across
+            <strong>Splunk, Wazuh, Microsoft Defender, Windows telemetry, Wireshark,
+            phishing investigation, malware analysis and Sigma detection engineering.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Explore Projects <span>↗</span></a>
+            <a class="btn ghost" href="YOUR_GITHUB_URL" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn ghost" href="YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="hero-facts">
+            <div><b data-count="13">13</b><span>Security Labs</span></div>
+            <div><b data-count="2">2</b><span>SIEM Platforms</span></div>
+            <div><b data-count="1">1</b><span>Year Internship</span></div>
+          </div>
+        </div>
+
+        <aside class="hud-card reveal delay-1" id="tiltCard">
+          <div class="hud-border"></div>
+
+          <div class="hud-head">
+            <div class="hud-title">
+              <span class="hud-dot"></span>
+              analyst_profile.sys
+            </div>
+            <span class="hud-status">ONLINE</span>
+          </div>
+
+          <div class="hud-body">
+            <div class="hud-profile">
+              <div class="avatar-ring">
+                <div class="avatar-inner">DB</div>
+              </div>
+              <div>
+                <div class="hud-name">Dulanjana Bandara</div>
+                <div class="hud-role">Junior SOC Analyst</div>
+              </div>
+            </div>
+
+            <div class="hud-divider"></div>
+
+            <div class="hud-row">
+              <span>Education</span>
+              <b>BSc (Hons) CS • Second Upper</b>
+            </div>
+            <div class="hud-row">
+              <span>Experience</span>
+              <b>~1 Year SWE Internship</b>
+            </div>
+            <div class="hud-row">
+              <span>Primary SIEM</span>
+              <b>Splunk / Wazuh</b>
+            </div>
+            <div class="hud-row">
+              <span>Detection</span>
+              <b>Sigma / SPL</b>
+            </div>
+
+            <div class="hud-divider"></div>
+
+            <div class="threat-meter">
+              <div class="meter-label">
+                <span>Portfolio readiness</span>
+                <b>100%</b>
+              </div>
+              <div class="meter-track"><span></span></div>
+            </div>
+
+            <div class="hud-tags">
+              <span>Windows Logs</span>
+              <span>PowerShell</span>
+              <span>Defender</span>
+              <span>Wireshark</span>
+              <span>MITRE ATT&amp;CK</span>
+              <span>Phishing</span>
+            </div>
+          </div>
+
+          <div class="hud-corners">
+            <i></i><i></i><i></i><i></i>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ticker">
+      <div class="ticker-track">
+        <span>SECURITY OPERATIONS</span><i>◆</i>
+        <span>SIEM INVESTIGATION</span><i>◆</i>
+        <span>WINDOWS TELEMETRY</span><i>◆</i>
+        <span>THREAT HUNTING</span><i>◆</i>
+        <span>PHISHING ANALYSIS</span><i>◆</i>
+        <span>DETECTION ENGINEERING</span><i>◆</i>
+        <span>SECURITY OPERATIONS</span><i>◆</i>
+        <span>SIEM INVESTIGATION</span><i>◆</i>
+        <span>WINDOWS TELEMETRY</span><i>◆</i>
+        <span>THREAT HUNTING</span><i>◆</i>
+      </div>
+    </section>
+
+    <section id="about" class="section section-anchor">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">01 / ABOUT</p>
+            <h2>Technical foundation.<br><span>Security-focused direction.</span></h2>
+          </div>
+          <p class="section-summary">
+            I combine a software engineering background with practical security operations work,
+            built through controlled labs, incident-style investigations and detection exercises.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="glass-card reveal">
+            <div class="card-topline"><span>01</span><i></i></div>
+            <h3>Computer Science Graduate</h3>
+            <p>
+              <strong>BSc (Hons) Computer Science — Second Upper Honours</strong>
+              from Informatics Institute of Technology, in collaboration with the University of Westminster, UK.
+            </p>
+          </article>
+
+          <article class="glass-card reveal delay-1">
+            <div class="card-topline"><span>02</span><i></i></div>
+            <h3>Industry Experience</h3>
+            <p>
+              Approximately one year as a <strong>Software Engineer Intern at Sarasa Soft Solutions</strong>,
+              developing practical debugging, troubleshooting and professional workflow experience.
+            </p>
+          </article>
+
+          <article class="glass-card reveal delay-2">
+            <div class="card-topline"><span>03</span><i></i></div>
+            <h3>Security Focus</h3>
+            <p>
+              Current focus: SOC operations, incident triage, SIEM investigation, endpoint monitoring,
+              phishing analysis, malware triage and detection engineering.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-anchor alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">02 / SECURITY STACK</p>
+            <h2>Tools used in<br><span>hands-on investigations.</span></h2>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">SI</div>
+            <h3>SIEM & Monitoring</h3>
+            <p>Splunk Enterprise, Splunk Universal Forwarder, SPL, Wazuh Manager, dashboards and alert triage.</p>
+            <div class="skill-bar"><span style="width:94%"></span></div>
+            <div class="mini-tags"><span>Splunk</span><span>Wazuh</span><span>SPL</span></div>
+          </article>
+
+          <article class="skill-card reveal delay-1">
+            <div class="skill-icon">EP</div>
+            <h3>Endpoint Security</h3>
+            <p>Windows Event Logs, Microsoft Defender, PowerShell Script Block Logging and endpoint telemetry.</p>
+            <div class="skill-bar"><span style="width:90%"></span></div>
+            <div class="mini-tags"><span>4624</span><span>4625</span><span>4104</span><span>1116</span></div>
+          </article>
+
+          <article class="skill-card reveal delay-2">
+            <div class="skill-icon">NW</div>
+            <h3>Network Analysis</h3>
+            <p>DNS, TCP, TLS, ports and protocol analysis using Wireshark and controlled packet captures.</p>
+            <div class="skill-bar"><span style="width:83%"></span></div>
+            <div class="mini-tags"><span>Wireshark</span><span>DNS</span><span>TCP</span><span>TLS</span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">TI</div>
+            <h3>Threat Investigation</h3>
+            <p>Phishing triage, SPF/DKIM/DMARC, IOC extraction, malware sandbox analysis and incident timelines.</p>
+            <div class="skill-bar"><span style="width:91%"></span></div>
+            <div class="mini-tags"><span>Phishing</span><span>IOCs</span><span>Malware</span></div>
+          </article>
+
+          <article class="skill-card reveal delay-1">
+            <div class="skill-icon">DE</div>
+            <h3>Detection Engineering</h3>
+            <p>Sigma rules, Sigma CLI, Splunk conversion, PowerShell detection logic and MITRE ATT&amp;CK mapping.</p>
+            <div class="skill-bar"><span style="width:86%"></span></div>
+            <div class="mini-tags"><span>Sigma</span><span>MITRE</span><span>PowerShell</span></div>
+          </article>
+
+          <article class="skill-card reveal delay-2">
+            <div class="skill-icon">OS</div>
+            <h3>Systems & Virtualization</h3>
+            <p>Windows 11, Ubuntu Server, VMware Workstation, PowerShell, Linux CLI and virtual lab environments.</p>
+            <div class="skill-bar"><span style="width:88%"></span></div>
+            <div class="mini-tags"><span>Windows</span><span>Ubuntu</span><span>VMware</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-anchor">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">03 / FEATURED WORK</p>
+            <h2>Security projects with<br><span>investigation evidence.</span></h2>
+          </div>
+          <p class="section-summary">
+            Strongest portfolio projects covering SIEM, incident analysis, phishing,
+            malware investigation and detection engineering.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="project-card wide reveal">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 08</span><b>SIEM</b></div>
+            <h3>Splunk SIEM Investigation</h3>
+            <p>
+              Deployed Splunk Enterprise, forwarded Windows Security logs, wrote SPL,
+              built a failed-logon detection, triggered a scheduled alert and created an authentication monitoring dashboard.
+            </p>
+            <div class="project-tags"><span>Splunk</span><span>SPL</span><span>Windows</span><span>Detection</span></div>
+            <a href="./Lab-08-Splunk-SIEM-Investigation/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal delay-1">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 13</span><b>DETECTION</b></div>
+            <h3>Sigma Detection Engineering</h3>
+            <p>Created and validated a Sigma rule, converted it to Splunk SPL and tested it against Event ID 4104 telemetry.</p>
+            <div class="project-tags"><span>Sigma</span><span>PowerShell</span><span>Splunk</span></div>
+            <a href="./Lab-13-Sigma-Detection-Engineering/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 07</span><b>INCIDENT</b></div>
+            <h3>Full SOC Incident Investigation</h3>
+            <p>Correlated authentication, PowerShell and Defender telemetry, built a timeline and documented analyst conclusions.</p>
+            <div class="project-tags"><span>Wazuh</span><span>Defender</span><span>IR</span></div>
+            <a href="./Lab-07-Full-SOC-Incident-Investigation/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal delay-1">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 10</span><b>PHISHING</b></div>
+            <h3>Advanced Phishing Investigation</h3>
+            <p>Analyzed sender identity, SPF/DKIM/DMARC, suspicious URLs, IOCs, blast radius and response actions.</p>
+            <div class="project-tags"><span>Phishing</span><span>Email Auth</span><span>IOCs</span></div>
+            <a href="./Lab-10-Advanced-Phishing-Investigation/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 12</span><b>MALWARE</b></div>
+            <h3>Malware Sandbox Analysis</h3>
+            <p>Analyzed Agent Tesla behavior including credential theft, persistence, discovery and suspicious FTP communication.</p>
+            <div class="project-tags"><span>Malware</span><span>Persistence</span><span>ATT&amp;CK</span></div>
+            <a href="./Lab-12-Malware-Sandbox-Analysis/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+
+          <article class="project-card reveal delay-1">
+            <div class="project-accent"></div>
+            <div class="project-top"><span>LAB 04</span><b>SIEM</b></div>
+            <h3>Wazuh SIEM Log Analysis</h3>
+            <p>Deployed Wazuh, enrolled a Windows endpoint and investigated authentication and Defender telemetry.</p>
+            <div class="project-tags"><span>Wazuh</span><span>Windows</span><span>Threat Hunting</span></div>
+            <a href="./Lab-04-Wazuh-SIEM-Log-Analysis/" class="project-link">Open case study <span>↗</span></a>
+          </article>
+        </div>
+
+        <div class="lab-directory reveal">
+          <div class="directory-head">
+            <div>
+              <p class="section-kicker">FULL LAB DIRECTORY</p>
+              <h3>All 13 completed labs</h3>
+            </div>
+            <button id="toggleLabs" class="btn ghost small">Show all labs</button>
+          </div>
+
+          <div id="allLabs" class="labs-grid collapsed">
+            <a class="lab-card" href="./Lab-01-Windows-Event-Log-Investigation/"><b>01</b><span>Windows Event Log Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-02-Wireshark-Traffic-Analysis/"><b>02</b><span>Wireshark Traffic Analysis</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-03-Phishing-Email-Investigation/"><b>03</b><span>Phishing Email Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-04-Wazuh-SIEM-Log-Analysis/"><b>04</b><span>Wazuh SIEM Log Analysis</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-05-Malware-Triage/"><b>05</b><span>Malware Triage</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-06-MITRE-ATTACK-Investigation/"><b>06</b><span>MITRE ATT&amp;CK Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-07-Full-SOC-Incident-Investigation/"><b>07</b><span>Full SOC Incident Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-08-Splunk-SIEM-Investigation/"><b>08</b><span>Splunk SIEM Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-09-Three-Alert-SOC-Triage/"><b>09</b><span>Three-Alert SOC Triage</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-10-Advanced-Phishing-Investigation/"><b>10</b><span>Advanced Phishing Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-11-Encoded-PowerShell-Investigation/"><b>11</b><span>Encoded PowerShell Investigation</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-12-Malware-Sandbox-Analysis/"><b>12</b><span>Malware Sandbox Analysis</span><i>↗</i></a>
+            <a class="lab-card" href="./Lab-13-Sigma-Detection-Engineering/"><b>13</b><span>Sigma Detection Engineering</span><i>↗</i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="background" class="section section-anchor alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">04 / BACKGROUND</p>
+            <h2>Education, experience<br><span>and research.</span></h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">DEGREE</div>
+            <div class="timeline-content">
+              <h3>BSc (Hons) Computer Science</h3>
+              <p class="highlight">Second Upper Honours</p>
+              <p>Informatics Institute of Technology<br>In collaboration with University of Westminster, UK</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal delay-1">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">~1 YEAR</div>
+            <div class="timeline-content">
+              <h3>Software Engineer Intern</h3>
+              <p class="highlight">Sarasa Soft Solutions</p>
+              <p>Software development, debugging, troubleshooting, technical problem solving and team-based workflows.</p>
+            </div>
+          </article>
+        </div>
+
+        <article class="fyp-card reveal">
+          <div class="fyp-label">FINAL YEAR PROJECT</div>
+          <div>
+            <h3>Neonatal Jaundice Detection Using a Computer Vision System</h3>
+            <p>
+              Developed a computer vision system using Python, TensorFlow/Keras and EfficientNetB4.
+              Work included transfer learning, image preprocessing, illumination correction, ROI extraction,
+              color normalization, stratified K-fold cross-validation, threshold optimization and web deployment.
+            </p>
+            <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>EfficientNetB4</span><span>Computer Vision</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-anchor contact-section">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-grid"></div>
+          <p class="section-kicker">05 / CONTACT</p>
+          <h2>Ready to contribute to a<br><span>security operations team.</span></h2>
+          <p>
+            Open to Junior SOC Analyst, Cybersecurity Analyst, Security Operations
+            and Associate Cybersecurity Analyst opportunities.
+          </p>
+
+          <div class="hero-actions center">
+            <a class="btn primary" href="mailto:YOUR_EMAIL">Email Me <span>↗</span></a>
+            <a class="btn ghost" href="YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn ghost" href="YOUR_GITHUB_URL" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn ghost" href="YOUR_CV_FILE.pdf" target="_blank" rel="noreferrer">View CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Dulanjana Bandara</span>
+      <span>DB • SOC • SIEM • Detection Engineering</span>
+    </div>
+  </footer>
+
+  <script>
+const toggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.nav-links');
+
+toggle?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+const labs = document.getElementById('allLabs');
+const labsBtn = document.getElementById('toggleLabs');
+
+labsBtn?.addEventListener('click', () => {
+  const collapsed = labs.classList.toggle('collapsed');
+  labsBtn.textContent = collapsed ? 'Show all labs' : 'Show less';
+});
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const sections = [...document.querySelectorAll('.section-anchor')];
+const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+
+function updateActiveNav() {
+  const y = window.scrollY + 140;
+  let active = '';
+  sections.forEach(section => {
+    if (y >= section.offsetTop) active = section.id;
+  });
+  links.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${active}`);
+  });
+}
+
+const topBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  updateActiveNav();
+  topBtn?.classList.toggle('show', window.scrollY > 650);
+}, { passive: true });
+
+topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+const tiltCard = document.getElementById('tiltCard');
+if (tiltCard && window.matchMedia('(pointer:fine)').matches) {
+  tiltCard.addEventListener('mousemove', e => {
+    const r = tiltCard.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    const rx = ((y / r.height) - 0.5) * -6;
+    const ry = ((x / r.width) - 0.5) * 7;
+    tiltCard.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+  });
+  tiltCard.addEventListener('mouseleave', () => {
+    tiltCard.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+  });
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+updateActiveNav();
+
+  </script>
+</body>
+</html>
