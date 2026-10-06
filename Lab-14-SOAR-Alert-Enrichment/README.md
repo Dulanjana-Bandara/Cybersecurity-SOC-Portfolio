@@ -16,7 +16,7 @@ Built a SOAR-style security automation workflow in Tines to receive a simulated 
 ## Workflow
 
 ```text
-Simulate Splunk Alert
+<pre><code>Simulate Splunk Alert
         |
         v
 Receive Security Alert
@@ -36,3 +36,4 @@ Classify Risk and Build Summary
 Generate     Finalize
 Analyst      Low/Medium
 Escalation   Alert
+</code></pre>
