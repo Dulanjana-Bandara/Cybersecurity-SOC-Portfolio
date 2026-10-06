@@ -15,7 +15,6 @@ Built a SOAR-style security automation workflow in Tines to receive a simulated 
 
 ## Workflow
 
-```text
 <pre><code>Simulate Splunk Alert
         |
         v
