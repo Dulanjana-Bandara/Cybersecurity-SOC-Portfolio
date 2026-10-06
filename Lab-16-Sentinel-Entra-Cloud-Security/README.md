@@ -17,8 +17,7 @@ The lab connected Entra audit activity to Sentinel, generated a controlled ident
 
 ## Workflow
 
-```text
-Microsoft Entra ID
+<pre><code>Microsoft Entra ID
         |
         v
 Audit Logs
@@ -31,3 +30,4 @@ Microsoft Sentinel
         |
         v
 KQL Investigation
+</code></pre>
